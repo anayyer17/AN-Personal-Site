@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayat Nayyer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,45 +20,63 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
 .bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding:1.25rem 0}
-.logo{font-family:var(--display);text-decoration:none;font-size:1.3rem}
 nav a{margin-left:1.25rem;font-weight:700;text-decoration:none;padding:.2rem .7rem;border-radius:99px;border:2px solid transparent}
+nav a:first-child{margin-left:0}
 nav a:hover{border-color:var(--ink);background:var(--lime)}
 
-/* Hero with stickers */
-.hero{position:relative;min-height:30rem;padding:3rem 0 4rem}
-.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(3.4rem,12vw,8.5rem);line-height:.95;letter-spacing:-.02em;max-width:11ch}
-.hero .lede{margin-top:1.5rem;max-width:30rem;font-size:1.3rem}
+/* Hero: headline on the left, stickers scattered in a strip on the right.
+   The text keeps out of the strip, so nothing overlaps. */
+.hero{position:relative;min-height:18rem;padding:1.25rem 16rem 0 0}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(3.2rem,10vw,7.5rem);line-height:.95;letter-spacing:-.02em;overflow-wrap:break-word}
+.hero .lede{margin-top:1rem;max-width:30rem;font-size:1.3rem}
+
+.stickers{position:absolute;top:1.25rem;right:0;width:15rem;height:17rem}
 .sticker{
   position:absolute;user-select:none;
   border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
   font-family:var(--display);display:grid;place-items:center;text-align:center;line-height:1.05;
 }
-.s1{right:4%;top:2rem;width:8.5rem;height:8.5rem;border-radius:50%;background:var(--lime);transform:rotate(12deg);font-size:1.2rem}
-.s2{right:22%;top:12rem;padding:.6rem 1.2rem;border-radius:1rem;background:#fff;transform:rotate(-8deg);font-size:1.1rem}
-.s3{right:6%;top:15rem;width:7rem;height:7rem;background:var(--green);color:#fff;transform:rotate(-14deg);border-radius:1.6rem 0.4rem 1.6rem 0.4rem;font-size:1.1rem}
-@media(max-width:700px){.s1{top:auto;bottom:0;right:3%;width:6rem;height:6rem}.s2{top:auto;bottom:6rem;right:30%}.s3{display:none}}
+.s1{top:0;right:.5rem;width:7.25rem;height:7.25rem;border-radius:50%;background:var(--lime);transform:rotate(12deg);font-size:1.1rem}
+.s2{top:8.75rem;left:0;padding:.5rem 1rem;border-radius:1rem;background:#fff;transform:rotate(-8deg);font-size:1.05rem}
+.s3{top:11.25rem;right:0;width:5.75rem;height:5.75rem;background:var(--green);color:#fff;transform:rotate(-14deg);border-radius:1.4rem .4rem 1.4rem .4rem;font-size:1.3rem}
 
-section{padding:3.5rem 0}
-h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:1.75rem}
-.about{background:var(--lav-light);border:3px solid var(--ink);border-radius:2rem;box-shadow:8px 8px 0 var(--ink);padding:2.25rem 2.5rem;max-width:46rem}
+/* Narrow screens: stickers sit in a short band under the text, still scattered */
+@media(max-width:760px){
+  .hero{min-height:0;padding:1rem 0 0}
+  .stickers{position:relative;top:auto;right:auto;width:100%;height:12rem;margin-top:.5rem}
+  .s1{top:0;right:6%;width:5.75rem;height:5.75rem;font-size:.95rem}
+  .s2{top:3.75rem;left:4%;font-size:.95rem}
+  .s3{top:6.5rem;right:30%;width:5rem;height:5rem;font-size:1.1rem}
+}
+
+section{padding:1.75rem 0}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:1.25rem}
+.about{background:var(--lav-light);border:3px solid var(--ink);border-radius:2rem;box-shadow:8px 8px 0 var(--ink);padding:1.75rem 2rem;max-width:46rem}
 .about p+p{margin-top:1rem}
 .chips{list-style:none;padding:0;margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.6rem}
 .chips li{background:var(--lime);border:2px solid var(--ink);border-radius:99px;padding:.2rem 1rem;font-weight:700;font-size:1rem}
 .chips li:nth-child(2){background:#fff}.chips li:nth-child(3){background:var(--green);color:#fff}
 
-.work{display:grid;gap:1.5rem}
-.project{display:block;text-decoration:none;background:var(--lav-light);border:3px solid var(--ink);border-radius:1.5rem;padding:1.6rem 2rem;box-shadow:6px 6px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.work{display:grid;gap:1.25rem}
+.project{display:block;text-decoration:none;background:var(--lav-light);border:3px solid var(--ink);border-radius:1.5rem;padding:1.35rem 1.75rem;box-shadow:6px 6px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .project:nth-child(even){background:var(--lime)}
 .project:hover{transform:translate(-3px,-3px) rotate(-.6deg);box-shadow:10px 10px 0 var(--ink)}
-.project h3{font-family:var(--display);font-weight:400;font-size:1.6rem}
+.project h3{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.2}
 .project p{margin-top:.3rem;max-width:40rem}
 .project .tags{margin-top:.8rem;font-weight:700;font-size:.95rem}
 
-.big{font-family:var(--display);font-size:clamp(1.5rem,5vw,2.8rem);text-decoration-thickness:5px;text-underline-offset:8px;text-decoration-color:var(--green)}
+.big{font-family:var(--display);font-size:clamp(1.2rem,5vw,2.8rem);overflow-wrap:anywhere;text-decoration-thickness:5px;text-underline-offset:8px;text-decoration-color:var(--green)}
 footer{padding:3rem 0 4rem;font-size:1rem}
+
+/* Themed cursor: a lime sticker-star, turning green over links */
+body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpolygon points='16,3 19.23,11.55 28.36,11.98 21.23,17.7 23.64,26.52 16,21.5 8.36,26.52 10.77,17.7 3.64,11.98 12.77,11.55' fill='%23c4f542' stroke='%231e1240' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") 16 16,auto}
+a,a *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpolygon points='16,3 19.23,11.55 28.36,11.98 21.23,17.7 23.64,26.52 16,21.5 8.36,26.52 10.77,17.7 3.64,11.98 12.77,11.55' fill='%231f9d55' stroke='%231e1240' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") 16 16,pointer}
+
+/* typing effect */
+.ghost{visibility:hidden}
 .caret{display:inline-block;width:.09em;height:.9em;background:var(--ink);margin-left:.06em;vertical-align:-.05em;animation:blink .8s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -67,10 +86,15 @@ footer{padding:3rem 0 4rem;font-size:1rem}
   </header>
   <main id="top">
     <div class="hero">
-      <h1>Hi, I’m Ayat.</h1>
-      <p class="lede typed">I’m a high school senior, creative writer, and budding scientist who loves sharing my stories with others. Scroll down to learn about some of my adventures!</p>
-      <div class="sticker s2">hello :)</div>
-      <div class="sticker s3">STEM<br>born</div>
+      <div class="hero-text">
+        <h1>Hi, I’m Ayat.</h1>
+        <p class="lede typed">I’m a high school senior, creative writer, and budding scientist who loves sharing my stories with others. Scroll down to learn about some of my adventures!</p>
+      </div>
+      <div class="stickers" aria-hidden="true">
+        <div class="sticker s1">made<br>by me!</div>
+        <div class="sticker s2">hello :)</div>
+        <div class="sticker s3">STEM</div>
+      </div>
     </div>
 
     <section id="research">
@@ -85,16 +109,16 @@ footer{padding:3rem 0 4rem;font-size:1rem}
     <section id="writing">
       <h2 class="typed">Writing</h2>
       <div class="work">
-        <a class="project" href="#"><h3>Washington Post Letter to the Editor</h3><p>Youth have a voice when it comes to healthcare-related advocacy. In this piece, I argue how we can advance objective scientific communication about vaccines. </p><div class="tags">Letter · 2026</div></a>
-        <a class="project" href="#"><h3>A Grander Cup of Tea</h3><p>Recounting my father’s medical journey and the legacy he left behind. I’ll continue writing more pieces honoring him and his unconditional sacrifices; may Allah (SWT) grant him the highest place in Jannah. </p><div class="tags">Reflection · 2026</div></a>
-        <a class="project" href="#"><h3>The Biochemical Symphony of RNA Pol III & Its Dissonant Collapse in Autoimmunity </h3><p>Literature review I wrote as part of the OpenBio SRI program, focusing on RNA Polymerase III and how its dysfunction is implicated in autoimmune disease from a metabolic and epigenetic perspective. Whether you’re a scientist or non-scientist, I encourage you to give it a read!.</p><div class="tags">Paper · 2024</div></a>
+        <a class="project" href="#"><h3>Washington Post Letter to the Editor</h3><p>Youth have a voice when it comes to healthcare-related advocacy. In this piece, I argue how we can advance objective scientific communication about vaccines.</p><div class="tags">Letter · 2026</div></a>
+        <a class="project" href="#"><h3>A Grander Cup of Tea</h3><p>Recounting my father’s medical journey and the legacy he left behind. I’ll continue writing more pieces honoring him and his unconditional sacrifices; may Allah (SWT) grant him the highest place in Jannah.</p><div class="tags">Reflection · 2026</div></a>
+        <a class="project" href="#"><h3>The Biochemical Symphony of RNA Pol III &amp; Its Dissonant Collapse in Autoimmunity</h3><p>Literature review I wrote as part of the OpenBio SRI program, focusing on RNA Polymerase III and how its dysfunction is implicated in autoimmune disease from a metabolic and epigenetic perspective. Whether you’re a scientist or non-scientist, I encourage you to give it a read!</p><div class="tags">Paper · 2024</div></a>
       </div>
     </section>
 
     <section id="hobbies">
       <h2 class="typed">Hobbies</h2>
       <div class="about">
-        <p>In my free time, I’ll probably be mindlessly journaling or painting another piece using acrylic watercolors. I also love Arabic calligraphy and watching food/travel vlogs with my family! :) </p>
+        <p>In my free time, I’ll probably be mindlessly journaling or painting another piece using acrylic watercolors. I also love Arabic calligraphy and watching food/travel vlogs with my family! :)</p>
       </div>
     </section>
 
@@ -105,39 +129,35 @@ footer{padding:3rem 0 4rem;font-size:1rem}
   </main>
   <footer>© <span id="y"></span> Ayat Nayyer. Hosted on GitHub Pages.</footer>
 </div>
+
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
+
 // Subtitles type themselves in as they scroll into view
 var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-var items=document.querySelectorAll('.typed');
+function prep(el){
+  var full=el.textContent;
+  el._full=full;el.textContent='';
+  el._a=document.createElement('span');
+  el._g=document.createElement('span');el._g.className='ghost';el._g.setAttribute('aria-hidden','true');el._g.textContent=full;
+  el.appendChild(el._a);el.appendChild(el._g);   // ghost holds the space so nothing jumps
+}
 function typeIt(el){
-  var full=el.getAttribute('data-full'),i=0;
-  el.textContent='';
-  var caret=document.createElement('span');caret.className='caret';caret.setAttribute('aria-hidden','true');
-  var txt=document.createTextNode('');
-  el.appendChild(txt);el.appendChild(caret);
+  var i=0,full=el._full,caret=document.createElement('span');
+  caret.className='caret';caret.setAttribute('aria-hidden','true');
+  el.insertBefore(caret,el._g);
   (function tick(){
-    txt.nodeValue=full.slice(0,++i);
+    i++;el._a.textContent=full.slice(0,i);el._g.textContent=full.slice(i);
     if(i<full.length){setTimeout(tick,el.tagName==='H2'?55:22);}
-    else{setTimeout(function(){caret.remove();},900);}
+    else{setTimeout(function(){el.textContent=full;},900);}
   })();
 }
 if(!reduce&&'IntersectionObserver' in window){
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){io.unobserve(e.target);typeIt(e.target);}
-    });
+    entries.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);typeIt(e.target);}});
   },{threshold:.6});
-  items.forEach(function(el){
-    el.setAttribute('data-full',el.textContent);
-    el.setAttribute('aria-label',el.textContent);
-    el.style.minHeight=el.offsetHeight+'px';   // keeps layout from jumping
-    el.textContent='\u00a0';
-    io.observe(el);
-  });
+  document.querySelectorAll('.typed').forEach(function(el){prep(el);io.observe(el);});
 }
 </script>
 </body>
 </html>
-
-
