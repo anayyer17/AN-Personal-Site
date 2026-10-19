@@ -26,7 +26,7 @@ nav a:hover{border-color:var(--ink);background:var(--lime)}
 
 /* Hero: headline on the left, stickers scattered in a strip on the right.
    The text keeps out of the strip, so nothing overlaps. */
-.hero{position:relative;min-height:18rem;padding:1.25rem 16rem 0 0}
+.hero{position:relative;min-height:19rem;padding:1.5rem 16rem 2rem 0}
 .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(3.2rem,10vw,7.5rem);line-height:.95;letter-spacing:-.02em;overflow-wrap:break-word}
 .hero .lede{margin-top:1rem;max-width:30rem;font-size:1.3rem}
 
@@ -42,14 +42,14 @@ nav a:hover{border-color:var(--ink);background:var(--lime)}
 
 /* Narrow screens: stickers sit in a short band under the text, still scattered */
 @media(max-width:760px){
-  .hero{min-height:0;padding:1rem 0 0}
+  .hero{min-height:0;padding:1rem 0 1.5rem}
   .stickers{position:relative;top:auto;right:auto;width:100%;height:12rem;margin-top:.5rem}
   .s1{top:0;right:6%;width:5.75rem;height:5.75rem;font-size:.95rem}
   .s2{top:3.75rem;left:4%;font-size:.95rem}
   .s3{top:6.5rem;right:30%;width:5rem;height:5rem;font-size:1.1rem}
 }
 
-section{padding:1.75rem 0}
+section{padding:2.75rem 0}
 h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin-bottom:1.25rem}
 .about{background:var(--lav-light);border:3px solid var(--ink);border-radius:2rem;box-shadow:8px 8px 0 var(--ink);padding:1.75rem 2rem;max-width:46rem}
 .about p+p{margin-top:1rem}
